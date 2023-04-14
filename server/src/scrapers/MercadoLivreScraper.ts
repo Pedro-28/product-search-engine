@@ -21,7 +21,7 @@ export class MercadoLivreScraper implements IScraper {
         description: product.querySelector("a.ui-search-item__group__element")?.getAttribute("title") ?? "",
         price: product.querySelector("div.ui-search-price__second-line .price-tag-fraction")?.innerHTML ?? "",
         imageLink: product.querySelector("img.ui-search-result-image__element")?.getAttribute("src") ?? "",
-        webSiteLink: product.querySelector("a.ui-search-item__group__element")?.getAttribute("href") ?? "",
+        websiteLink: product.querySelector("a.ui-search-item__group__element")?.getAttribute("href") ?? "",
       }));
       return data;
     });

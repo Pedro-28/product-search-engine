@@ -6,7 +6,7 @@ export class BuscapeProductsService {
   async execute(product: string) {
     const scrapedData = await this.scraper.execute(product);
 
-    const products = scrapedData.map((data) => new Product({ ...data, webSite: "Buscape" }));
+    const products = scrapedData.map((data) => new Product({ ...data, website: "Buscape" }));
 
     return products;
   }

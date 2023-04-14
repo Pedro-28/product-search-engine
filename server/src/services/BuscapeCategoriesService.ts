@@ -5,12 +5,12 @@ import { Product } from "../domain/Product";
 export class BuscapeCategoriesService {
   constructor(private productsRepository: ProductsRepository, private scraper: IScraper) { }
   async execute(category: string) {
-    let products = await this.productsRepository.findManyByCategoryAndWebsite(category, "Buscape");
+    let products = await this.productsRepository.findManyByCategoryAndwebsite(category, "Buscape");
 
     if (!products.length) {
       const scrapedData = await this.scraper.execute(category);
 
-      products = scrapedData.map((data) => new Product({ ...data, webSite: "Buscape", category }));
+      products = scrapedData.map((data) => new Product({ ...data, website: "Buscape", category }));
 
       await this.productsRepository.createMany(products);
     }

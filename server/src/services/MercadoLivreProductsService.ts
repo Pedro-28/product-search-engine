@@ -6,7 +6,7 @@ export class MercadoLivreProductsService {
   async execute(product: string) {
     const scrapedData = await this.scraper.execute(product);
 
-    const products = scrapedData.map((data) => new Product({ ...data, webSite: "Mercado Livre" }));
+    const products = scrapedData.map((data) => new Product({ ...data, website: "Mercado Livre" }));
 
     return products;
   }

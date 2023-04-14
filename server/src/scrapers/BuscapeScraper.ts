@@ -17,7 +17,7 @@ export class BuscapeScraper implements IScraper {
         description: product.querySelector("h2.SearchCard_ProductCard_Name__ZaO5o")?.innerHTML ?? "",
         price: product.querySelector("p.Text_Text__h_AF6")?.innerHTML.replace("R$ ", "") ?? "",
         imageLink: product.querySelector("img")?.getAttribute("src") ?? "",
-        webSiteLink: url + product.getAttribute("href") ?? "",
+        websiteLink: url + product.getAttribute("href") ?? "",
       }));
 
       return data;

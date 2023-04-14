@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: webscraperdb
+    ports:
+      - "5432:5432"

@@ -8,8 +8,8 @@ export class ProductViewModel {
       category: product.category,
       price: product.price,
       imageLink: product.imageLink,
-      webSite: product.webSite,
-      webSiteLink: product.webSiteLink,
+      website: product.website,
+      websiteLink: product.websiteLink,
     };
   }
 }

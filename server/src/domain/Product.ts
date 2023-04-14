@@ -50,19 +50,19 @@ export class Product {
     this.props.imageLink = imageLink;
   }
 
-  public get webSite(): string {
-    return this.props.webSite;
+  public get website(): string {
+    return this.props.website;
   }
 
-  public set webSite(webSite: string) {
-    this.props.webSite = webSite;
+  public set website(website: string) {
+    this.props.website = website;
   }
 
-  public get webSiteLink(): string {
-    return this.props.webSiteLink;
+  public get websiteLink(): string {
+    return this.props.websiteLink;
   }
 
-  public set webSiteLink(webSiteLink: string) {
-    this.props.webSiteLink = webSiteLink;
+  public set websiteLink(websiteLink: string) {
+    this.props.websiteLink = websiteLink;
   }
 }
