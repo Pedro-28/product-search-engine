@@ -1,10 +1,11 @@
 import puppeteer, { Browser } from "puppeteer";
-import { IProduct } from "../interfaces/product";
+import { IScrapedData } from "../interfaces/product";
+import { IScraper } from "../interfaces/scraper";
 
-export class BuscapeScraper {
+export class BuscapeScraper implements IScraper {
   private baseUrl = "https://www.buscape.com.br";
 
-  async execute(category: string): Promise<Omit<IProduct, "id" | "category">[]> {
+  async execute(category: string): Promise<IScrapedData[]> {
     const browser: Browser = await puppeteer.launch({ args: ['--disable-cache'] });
     const page = await browser.newPage();
     await page.goto(`${this.baseUrl}/${category}`, { waitUntil: "load" });

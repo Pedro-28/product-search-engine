@@ -1,8 +1,8 @@
 import { FastifyRequest } from "fastify";
-import { MercadoLivreProductsService } from "../services/MercadoLivreProductsService";
+import { BuscapeProductsService } from "../services/BuscapeProductsService";
 
-export class MercadoLivreProductsController {
-  constructor(private service: MercadoLivreProductsService) { }
+export class BuscapeProductsController {
+  constructor(private service: BuscapeProductsService) { }
 
   async get(request: FastifyRequest) {
     const { category } = request.params as { category: string };

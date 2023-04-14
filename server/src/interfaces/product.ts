@@ -6,3 +6,5 @@ export interface IProduct {
   imageLink: string;
   webSiteLink: string;
 };
+
+export type IScrapedData = Omit<IProduct, "id" | "category">;
