@@ -4,7 +4,7 @@ import { BuscapeProductsService } from "../services/BuscapeProductsService";
 export class BuscapeProductsController {
   constructor(private service: BuscapeProductsService) { }
 
-  async get(request: FastifyRequest) {
+  execute = async (request: FastifyRequest) => {
     const { category } = request.params as { category: string };
 
     const products = await this.service.execute(category);

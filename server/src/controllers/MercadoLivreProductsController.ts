@@ -4,7 +4,7 @@ import { MercadoLivreProductsService } from "../services/MercadoLivreProductsSer
 export class MercadoLivreProductsController {
   constructor(private service: MercadoLivreProductsService) { }
 
-  async get(request: FastifyRequest) {
+  execute = async (request: FastifyRequest) => {
     const { category } = request.params as { category: string };
 
     const products = await this.service.execute(category);
