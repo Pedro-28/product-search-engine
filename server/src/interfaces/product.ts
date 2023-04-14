@@ -2,8 +2,7 @@ export interface IProduct {
   id: string;
   description: string;
   category: string;
-  price: number;
+  price: string;
   imageLink: string;
-  webSite: string;
   webSiteLink: string;
 };
