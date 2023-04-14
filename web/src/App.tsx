@@ -11,7 +11,7 @@ function App() {
       <Header setProducts={setProducts} />
       <div>
         {products.map((product) => (
-          <Product info={product} />
+          <Product key={product.id} info={product} />
         ))}
       </div>
     </div>

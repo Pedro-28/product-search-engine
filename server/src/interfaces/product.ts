@@ -1,8 +1,9 @@
 export interface IProduct {
-  img: string;
-  name: string;
+  id: string;
   description: string;
   category: string;
   price: number;
-  url: string;
+  imageLink: string;
+  webSite: string;
+  webSiteLink: string;
 };

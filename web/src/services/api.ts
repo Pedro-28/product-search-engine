@@ -1,9 +1,9 @@
 // `https://api.mercadolibre.com/sites/MLB/search?q=${query}` mercadolivre busca
-// "https://api.mercadolibre.com/sites/MLA/categories" mercadolivre categorias
+// "https://api.mercadolibre.com/sites/MLB/categories" mercadolivre categorias
 // `https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`
-// { "id" : "MLA1051" , "name" : "Celulares e Telefones" }
-// { "id" : "MLA5726" , "name" : "Eletrodomésticos e ar condicionado." }
-// { "id" : "MLA1000" , "name" : "Eletrônicos, Áudio e Vídeo" }
+// { "id" : "MLB1055" , "name" : "Celulares e Telefones" }
+// { "id" : "MLB181294" , "name" : "Eletrodomésticos e ar condicionado." }
+// { "id" : "MLB1002" , "name" : "Eletrônicos, Áudio e Vídeo" }
  
 
 export async function searchProduct(query: string) {
