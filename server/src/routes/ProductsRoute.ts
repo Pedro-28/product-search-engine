@@ -15,7 +15,7 @@ export class ProductsRoute {
     const mercadoLivreProductsController = new MercadoLivreProductsController(mercadoLivreProductsService);
     const buscapeProductsController = new BuscapeProductsController(buscapeProductsService);
 
-    app.get("/products/:category/mercadolivre", mercadoLivreProductsController.execute);
-    app.get("/products/:category/buscape", buscapeProductsController.execute);
+    app.get("/product/:product/mercadolivre", mercadoLivreProductsController.execute);
+    app.get("/product/:product/buscape", buscapeProductsController.execute);
   }
 }

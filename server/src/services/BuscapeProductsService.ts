@@ -1,9 +1,13 @@
+import { Product } from "../domain/Product";
 import { IScraper } from "../interfaces/scraper";
 
 export class BuscapeProductsService {
   constructor(private scraper: IScraper) { }
-  async execute(category: string) {
-    const scrapedData = await this.scraper.execute(category);
-    return scrapedData;
+  async execute(product: string) {
+    const scrapedData = await this.scraper.execute(product);
+
+    const products = scrapedData.map((data) => new Product({ ...data, webSite: "Buscape" }));
+
+    return products;
   }
 }

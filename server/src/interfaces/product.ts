@@ -4,7 +4,8 @@ export interface IProduct {
   category: string;
   price: string;
   imageLink: string;
+  webSite: string;
   webSiteLink: string;
 };
 
-export type IScrapedData = Omit<IProduct, "id" | "category">;
+export type IScrapedData = Omit<IProduct, "id" | "category" | "webSite">;

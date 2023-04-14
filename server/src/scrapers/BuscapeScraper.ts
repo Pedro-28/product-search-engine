@@ -8,7 +8,7 @@ export class BuscapeScraper implements IScraper {
   async execute(category: string): Promise<IScrapedData[]> {
     const browser: Browser = await puppeteer.launch({ args: ['--disable-cache'] });
     const page = await browser.newPage();
-    await page.goto(`${this.baseUrl}/${category}`, { waitUntil: "load" });
+    await page.goto(`${this.baseUrl}/search?q=${category}`, { waitUntil: "load" });
 
     const productsData = await page.evaluate((url: string) => {
       const productPods = Array.from(document.querySelectorAll("a.SearchCard_ProductCard_Inner__7JhKb"));

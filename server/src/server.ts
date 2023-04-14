@@ -1,8 +1,9 @@
 import Fastify from "fastify";
-import { ProductsRoute } from "./routes";
+import { CategoriesRoute, ProductsRoute } from "./routes";
 
 const app = Fastify();
 
+app.register(new CategoriesRoute().routes);
 app.register(new ProductsRoute().routes);
 
 app.listen({
