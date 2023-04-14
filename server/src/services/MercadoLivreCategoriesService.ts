@@ -1,9 +1,20 @@
+import { ProductsRepository } from "../repositories/ProductsRepository";
 import { IScraper } from "../interfaces/scraper";
+import { Product } from "../domain/Product";
 
 export class MercadoLivreCategoriesService {
-  constructor(private scraper: IScraper) { }
+  constructor(private productsRepository: ProductsRepository, private scraper: IScraper) { }
   async execute(category: string) {
-    const scrapedData = await this.scraper.execute(category);
-    return scrapedData;
+    let products = await this.productsRepository.findManyByCategoryAndWebsite(category, "Mercado Livre");
+
+    if (!products.length) {
+      const scrapedData = await this.scraper.execute(category);
+
+      products = scrapedData.map((data) => new Product({ ...data, webSite: "Mercado Livre", category }));
+
+      await this.productsRepository.createMany(products);
+    }
+
+    return products;
   }
 }
