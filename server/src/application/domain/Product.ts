@@ -1,6 +1,6 @@
 import { IProduct } from "../interfaces/product";
 import { randomUUID } from 'crypto';
-import { Replace } from "../helpers/Replace";
+import { Replace } from "../../helpers/Replace";
 
 
 export class Product {

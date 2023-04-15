@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 import { BuscapeProductsController, MercadoLivreProductsController } from "../controllers";
 import { BuscapeScraper } from "../scrapers/BuscapeScraper";
 import { MercadoLivreScraper } from "../scrapers/MercadoLivreScraper";
-import { BuscapeProductsService, MercadoLivreProductsService } from "../services";
+import { BuscapeProductsService, MercadoLivreProductsService } from "../../../application/services";
 
 export class ProductsRoute {
   async routes(app: FastifyInstance) {

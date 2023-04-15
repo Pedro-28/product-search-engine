@@ -1,9 +1,9 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { MercadoLivreCategoriesService } from "../services";
+import { BuscapeCategoriesService } from "../../../application/services";
 import { ProductViewModel } from "../viewModels/ProductViewModel";
 
-export class MercadoLivreCategoriesController {
-  constructor(private service: MercadoLivreCategoriesService) { }
+export class BuscapeCategoriesController {
+  constructor(private service: BuscapeCategoriesService) { }
 
   execute = async (request: FastifyRequest, reply: FastifyReply) => {
     try {

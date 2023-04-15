@@ -1,6 +1,6 @@
 import { Product as RawProduct } from "@prisma/client";
 
-import { Product } from "../../../domain/Product";
+import { Product } from "../../../../application/domain/Product";
 
 export class PrismaProductMapper {
   static toPrisma(product: Product) {

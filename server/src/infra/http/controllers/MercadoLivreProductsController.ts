@@ -1,15 +1,15 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { BuscapeCategoriesService } from "../services";
+import { MercadoLivreProductsService } from "../../../application/services";
 import { ProductViewModel } from "../viewModels/ProductViewModel";
 
-export class BuscapeCategoriesController {
-  constructor(private service: BuscapeCategoriesService) { }
+export class MercadoLivreProductsController {
+  constructor(private service: MercadoLivreProductsService) { }
 
   execute = async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-      const { category } = request.params as { category: string };
+      const { product } = request.params as { product: string };
 
-      const products = await this.service.execute(category);
+      const products = await this.service.execute(product);
 
       return {
         products: products.map(ProductViewModel.toHTTP),

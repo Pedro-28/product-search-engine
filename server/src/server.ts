@@ -1,5 +1,5 @@
 import Fastify from "fastify";
-import { CategoriesRoute, ProductsRoute } from "./routes";
+import { CategoriesRoute, ProductsRoute } from "./infra/http/routes";
 
 const app = Fastify();
 

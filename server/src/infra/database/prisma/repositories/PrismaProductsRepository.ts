@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
-import { ProductsRepository } from "../../../repositories/ProductsRepository";
-import { Product } from "../../../domain/Product";
+import { ProductsRepository } from "../../../../application/repositories/ProductsRepository";
+import { Product } from "../../../../application/domain/Product";
 import { PrismaProductMapper } from "../mappers/PrismaProductMapper";
 
 export class PrismaProductsRepository implements ProductsRepository {
@@ -17,9 +17,9 @@ export class PrismaProductsRepository implements ProductsRepository {
     });
   }
 
-  async findManyByCategoryAndwebsite(
+  async findManyByCategoryAndWebsite(
     category: string,
-    website?: string | undefined
+    website: string
   ): Promise<Product[]> {
     const dbProducts = await this.prisma.product.findMany({
       where: { category, website }
