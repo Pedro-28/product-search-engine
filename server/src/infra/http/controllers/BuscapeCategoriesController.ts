@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { BuscapeCategoriesService } from "../../../application/services";
+import { BuscapeCategoriesService } from "@application/services";
 import { ProductViewModel } from "../viewModels/ProductViewModel";
 
 export class BuscapeCategoriesController {

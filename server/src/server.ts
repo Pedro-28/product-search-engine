@@ -1,11 +1,19 @@
+import "dotenv/config";
 import Fastify from "fastify";
-import { CategoriesRoute, ProductsRoute } from "./infra/http/routes";
+import cors from "@fastify/cors";
+import { CategoriesRoute, ProductsRoute } from "@infra/http/routes";
+
+const { ORIGIN_URL, PORT } = process.env;
 
 const app = Fastify();
+
+app.register(cors, {
+  origin: ORIGIN_URL,
+});
 
 app.register(new CategoriesRoute().routes);
 app.register(new ProductsRoute().routes);
 
 app.listen({
-  port: 3333,
+  port: Number(PORT),
 }).then(() => console.log("Server running"));

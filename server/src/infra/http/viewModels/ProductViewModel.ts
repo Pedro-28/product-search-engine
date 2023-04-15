@@ -1,4 +1,4 @@
-import { Product } from "../../../application/domain/Product";
+import { Product } from "@application/domain/Product";
 
 export class ProductViewModel {
   static toHTTP(product: Product) {

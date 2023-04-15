@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
-import { ProductsRepository } from "../../../../application/repositories/ProductsRepository";
-import { Product } from "../../../../application/domain/Product";
+import { ProductsRepository } from "@application/repositories/ProductsRepository";
+import { Product } from "@application/domain/Product";
 import { PrismaProductMapper } from "../mappers/PrismaProductMapper";
 
 export class PrismaProductsRepository implements ProductsRepository {

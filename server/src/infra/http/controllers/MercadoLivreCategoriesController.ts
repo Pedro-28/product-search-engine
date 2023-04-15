@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { MercadoLivreCategoriesService } from "../../../application/services";
+import { MercadoLivreCategoriesService } from "@application/services";
 import { ProductViewModel } from "../viewModels/ProductViewModel";
 
 export class MercadoLivreCategoriesController {

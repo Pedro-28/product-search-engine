@@ -1,6 +1,6 @@
 import puppeteer, { Browser } from "puppeteer";
-import { IScrapedData } from "../../../application/interfaces/product";
-import { IScraper } from "../../../application/interfaces/scraper";
+import { IScrapedData } from "@application/interfaces/product";
+import { IScraper } from "@application/interfaces/scraper";
 
 export class MercadoLivreScraper implements IScraper {
   private baseUrl = "https://www.mercadolivre.com.br/";

@@ -2,7 +2,7 @@ import { FastifyInstance } from "fastify";
 
 import { MercadoLivreScraper } from "../scrapers/MercadoLivreScraper";
 import { BuscapeScraper } from "../scrapers/BuscapeScraper";
-import { MercadoLivreCategoriesService, BuscapeCategoriesService } from "../../../application/services";
+import { MercadoLivreCategoriesService, BuscapeCategoriesService } from "@application/services";
 import { MercadoLivreCategoriesController, BuscapeCategoriesController } from "../controllers";
 import { PrismaProductsRepository } from "../../database/prisma/repositories/PrismaProductsRepository";
 

@@ -1,6 +1,6 @@
 import puppeteer, { Browser } from "puppeteer";
-import { IScrapedData } from "../../../application/interfaces/product";
-import { IScraper } from "../../../application/interfaces/scraper";
+import { IScrapedData } from "@application/interfaces/product";
+import { IScraper } from "@application/interfaces/scraper";
 
 export class BuscapeScraper implements IScraper {
   private baseUrl = "https://www.buscape.com.br";
