@@ -1,19 +1,27 @@
 import { useState } from "react";
 import { IProduct } from "../interfaces/product";
-import { getByCategory, searchProduct } from "../services/api";
-import { productMapper } from "../utils/productMapper";
+import {
+  getProductsfromMercadoLivre,
+  getProductsfromBuscape,
+  getProductsByMercadoLivreCategory,
+  getProductsByBuscapeCategory,
+} from "../services/api";
+import { converterBase64 } from "../utils/converterBase64";
+// import { productMapper } from "../utils/productMapper";
 import { Select } from "./Select";
 
-const webList = [
-  { id: "Todas", name: "Todas" },
-  { id: "MercadoLivre", name: "Mercado Livre" },
-  { id: "Buscape", name: "Buscapé" },
-];
-const categories = [
-  { id: "MLB1055", name: "Celular" },
-  { id: "MLB181294", name: "Geladeira" },
-  { id: "MLB1002", name: "TV" },
-];
+// const webList = [
+//   { id: "Todas", name: "Todas" },
+//   { id: "MercadoLivre", name: "Mercado Livre" },
+//   { id: "Buscape", name: "Buscapé" },
+// ];
+// const categories = [
+//   { id: "MLB1055", name: "Celular" },
+//   { id: "MLB181294", name: "Geladeira" },
+//   { id: "MLB1002", name: "TV" },
+// ];
+const webList = ["Todas", "Mercado Livre", "Buscape"];
+const categories = ["Celular", "Geladeira", "TV"];
 
 interface HeaderProps {
   setProducts: (products: IProduct[]) => void;
@@ -21,28 +29,59 @@ interface HeaderProps {
 
 export function Header({ setProducts }: HeaderProps) {
   const [search, setSearch] = useState("");
-  const [web, setWeb] = useState("");
-  // const [category, setCategory] = useState("");
+  const [web, setWeb] = useState("Mercado Livre");
 
   const handleSearch = async () => {
-    const productsData = await searchProduct(search);
-    const products: IProduct[] = productsData.results.map(productMapper);
+    let products: IProduct[] = [];
+
+    if (web === "Mercado Livre" || web === "Todas") {
+      const { data } = await getProductsfromMercadoLivre(search);
+      products = [...data.products];
+    }
+
+    if (web === "Buscape" || web === "Todas") {
+      const { data } = await getProductsfromBuscape(search);
+      products = [...products, ...data.products];
+    }
+    console.log("search");
+
+    // setProducts(products.map(converterBase64));
     setProducts(products);
   };
 
-  const handleCategorySearch = async (id: string) => {
-    const categoryData = await getByCategory(id);
-    
-    const products: IProduct[] = categoryData.results.map(productMapper);
+  const handleCategorySearch = async (category: string) => {
+    let products: IProduct[] = [];
+
+    if (web === "Mercado Livre" || web === "Todas") {
+      const { data } = await getProductsByMercadoLivreCategory(category);
+      products = [...data.products];
+    }
+
+    if (web === "Buscape" || web === "Todas") {
+      const { data } = await getProductsByBuscapeCategory(category);
+      products = [...products, ...data.products];
+    }
+    console.log("category");
+
+    // setProducts(products.map(converterBase64));
     setProducts(products);
   };
 
   return (
-    <header>
-      <Select selectTitle="Web" handleChange={setWeb} listOptions={webList} />
-      <Select selectTitle="Categorias" handleChange={handleCategorySearch} listOptions={categories} />
-      <input type="text" value={search} onChange={({ target }) => setSearch(target.value)} />
-      <button type="button" onClick={handleSearch}>Buscar</button>
+    <header className="bg-[#0000009c] w-full h-16 flex justify-center">
+      <div className="w-full h-full max-w-5xl flex justify-between items-center">
+        <h1 className="text-3xl font-bold">Web scraper</h1>
+        <div className="flex gap-10">
+          <div className="rounded-l-sm">
+            <Select classes="rounded-l-sm" selectTitle="Web" handleChange={setWeb} listOptions={webList} />
+            <Select classes="rounded-r-sm" selectTitle="Categorias" handleChange={handleCategorySearch} listOptions={categories} />
+          </div>
+          <div className="">
+            <input className="w-72 rounded-l-sm" type="text" value={search} onChange={({ target }) => setSearch(target.value)} />
+            <button className="bg-slate-600 rounded-r-sm" type="button" onClick={handleSearch}>Buscar</button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
