@@ -11,7 +11,7 @@ type ApiResponse = {
 };
 
 export const api = axios.create({
-  baseURL: 'https://web-scraper-backend-production.up.railway.app',
+  baseURL: 'https://web-scraper-backend-nqdh.onrender.com',
 });
 
 export async function getProductsfromMercadoLivre(productName: string): Promise<ApiResponse> {
