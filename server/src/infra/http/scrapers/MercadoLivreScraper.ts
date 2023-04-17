@@ -8,11 +8,11 @@ export class MercadoLivreScraper implements IScraper {
   async execute(category: string): Promise<IScrapedData[]> {
     const browser: Browser = await puppeteer.launch({ args: ['--disable-cache'] });
     const page = await browser.newPage();
-    await page.goto(this.baseUrl, { waitUntil: "load" });
+    await page.goto(this.baseUrl, { waitUntil: "load", timeout: 0 });
 
     await page.type(".nav-search-input", category);
     await page.click("[type=submit]");
-    await page.waitForSelector(".nav-search-input");
+    await page.waitForSelector(".nav-search-input", { timeout: 0 });
 
     const productsData = await page.evaluate(() => {
       const productPods = Array.from(document.querySelectorAll("li.ui-search-layout__item"));
