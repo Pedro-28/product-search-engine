@@ -33,8 +33,8 @@ O objetivo desse projeto é realizar scraping de produtos nos sites do Mercado L
     PORT="porta-que-esta_rodando_o_projeto"
     ORIGIN_URL="url_do_frontend_permitida"
    ```
-5. Execute o comando `cd server && npm run dev` na raiz do projeto para instalar as dependências do backend
-5. Execute o comando `cd web && npm run dev` na raiz do projeto para instalar as dependências do frontend
+5. Execute o comando `cd server && npm run dev` na raiz do projeto para iniciar o servidor de desenvolvimento do backend
+5. Execute o comando `cd web && npm run dev` na raiz do projeto para iniciar o servidor de desenvolvimento do frontend
 
 ## Subindo o banco de dados
 
