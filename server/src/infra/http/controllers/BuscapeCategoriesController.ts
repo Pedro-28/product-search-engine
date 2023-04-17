@@ -15,6 +15,7 @@ export class BuscapeCategoriesController {
         products: products.map(ProductViewModel.toHTTP),
       };
     } catch (error) {
+      console.log(error);
       reply.code(500).send("Internal error");
     }
   }
