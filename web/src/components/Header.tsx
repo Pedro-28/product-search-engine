@@ -70,15 +70,15 @@ export function Header({ setProducts }: HeaderProps) {
   return (
     <header className="bg-[#0000009c] w-full h-16 flex justify-center">
       <div className="w-full h-full max-w-5xl flex justify-between items-center">
-        <h1 className="text-3xl font-bold">Web scraper</h1>
+        <h1 className="text-3xl font-bold text-white">Web scraper</h1>
         <div className="flex gap-10">
-          <div className="rounded-l-sm">
-            <Select classes="rounded-l-sm" selectTitle="Web" handleChange={setWeb} listOptions={webList} />
-            <Select classes="rounded-r-sm" selectTitle="Categorias" handleChange={handleCategorySearch} listOptions={categories} />
+          <div className="">
+            <Select classes="rounded-l-sm w-28 h-8" selectTitle="Web" handleChange={setWeb} listOptions={webList} />
+            <Select classes="rounded-r-sm w-28 h-8" selectTitle="Categorias" handleChange={handleCategorySearch} listOptions={categories} />
           </div>
           <div className="">
-            <input className="w-72 rounded-l-sm" type="text" value={search} onChange={({ target }) => setSearch(target.value)} />
-            <button className="bg-slate-600 rounded-r-sm" type="button" onClick={handleSearch}>Buscar</button>
+            <input className="w-72 h-8 rounded-l-sm" type="text" value={search} onChange={({ target }) => setSearch(target.value)} />
+            <button className="bg-white border-l h-8 px-2 rounded-r-sm" type="button" onClick={handleSearch}>Buscar</button>
           </div>
         </div>
       </div>

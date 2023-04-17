@@ -17,12 +17,17 @@ export class MercadoLivreScraper implements IScraper {
     const productsData = await page.evaluate(() => {
       const productPods = Array.from(document.querySelectorAll("li.ui-search-layout__item"));
 
-      const data = productPods.map((product: Element) => ({
-        description: product.querySelector("a.ui-search-item__group__element")?.getAttribute("title") ?? "",
-        price: product.querySelector("div.ui-search-price__second-line .price-tag-fraction")?.innerHTML ?? "",
-        imageLink: product.querySelector("img.ui-search-result-image__element")?.getAttribute("src") ?? "",
-        websiteLink: product.querySelector("a.ui-search-item__group__element")?.getAttribute("href") ?? "",
-      }));
+      const data = productPods.map((product: Element) => {
+        const imageSrc = product.querySelector("img.ui-search-result-image__element")?.getAttribute("src");
+        const imageDataSrc = product.querySelector("img.ui-search-result-image__element")?.getAttribute("data-src");
+
+        return {
+          description: product.querySelector("a.ui-search-item__group__element")?.getAttribute("title") ?? "",
+          price: product.querySelector("div.ui-search-price__second-line .price-tag-fraction")?.innerHTML ?? "",
+          imageLink: (imageSrc?.includes("data:") ? imageDataSrc : imageSrc) ?? "",
+          websiteLink: product.querySelector("a.ui-search-item__group__element")?.getAttribute("href") ?? "",
+        }
+      });
       return data;
     });
 
